@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
+
+
+
+
+<!--
+	
+	What's happening:
+Appenders = Where the logs go.
+
+Console → Terminal
+
+FileLogger → logs/automation.log file
+
+PatternLayout = How each log message is formatted.
+
+Loggers = What gets logged.
+
+Root → Default logger (logs everything)
+
+Logger with seventenMay25Practice → More specific control
+
+How to remember:
+Use this mental structure:
+
+“Where do I want to log?” → Console and File
+
+“How should the log look?” → Date, thread, level, class, message
+
+“What level?” → INFO, DEBUG, etc.
+
+-->
+
+
+
+
+<!--
+	
+	In the log4j2.xml file, the attribute:
+
+xml
+Copy
+Edit
+<Configuration status="WARN">
+is often misunderstood, so here’s a clear explanation:
+
+✅ What does status="WARN" mean?
+This does not affect your test logs directly.
+
+It controls how verbose Log4j's internal logging is, especially when parsing this config file itself.
+
+🛠️ Why is it useful?
+Log4j can log its own messages if something goes wrong in its configuration.
+
+status="WARN" means:
+“Only log warnings and errors from Log4j's internal configuration process.”
+
+If there's a typo in your <Appender> or <Logger>, Log4j might log a warning, which is helpful for debugging.
+
+🔁 Common options:
+Status Level	Use When...
+OFF	You don’t want Log4j to log its own config info.
+ERROR	Only Log4j internal config errors should show.
+WARN (default)	You want to see warnings (like missing appenders).
+INFO	You’re actively developing/debugging Log4j config.
+DEBUG	You want full insight into how Log4j is building appenders, etc.
+
+💡 Example (to see what's happening behind the scenes):
+xml
+Copy
+Edit
+<Configuration status="DEBUG">
+Try this temporarily, and you’ll see internal logs like:
+
+lua
+Copy
+Edit
+DEBUG StatusLogger Initializing configuration XML...
+DEBUG StatusLogger Configuration file found at path: log4j2.xml
+✅ Best Practice:
+Keep it at WARN or ERROR unless you're troubleshooting Log4j itself..
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+<extentreports>
+    <configuration>
+        <theme>standard</theme>
+        <encoding>utf-8</encoding>
+        <protocol>https</protocol>
+        <documentTitle>Automation Test Report</documentTitle>
+        <reportName>Hybrid Selenium Framework Execution Report</reportName>
+        <timestampFormat>MMM dd, yyyy HH:mm:ss</timestampFormat>
+    </configuration>
+</extentreports>
+
+<!--
+	What's happening:
+<theme>standard</theme> – Standard (light) look; you could change it to dark.
+
+<encoding>utf-8</encoding> – Character encoding.
+
+<protocol>https</protocol> – Secure protocol, not really critical here.
+
+<documentTitle> – Title in browser tab.
+
+<reportName> – Main heading in the report.
+
+<timestampFormat> – How date/time appears.
+
+How to remember:
+Just ask: “What do I want my HTML report to look like?”
+Then describe it in simple tags:
+
+theme, title, name, timestamp format.
+
+-->
